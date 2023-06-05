@@ -40,7 +40,7 @@ const SocialLinks = (): JSX.Element => {
   ];
 
   return (
-    <section className="fixed left-0 top-[calc(50%-102px)]">
+    <section className="fixed left-0 top-[calc(50%-102px)] hidden lg:block">
       <ul>
         {socialLinks.map((link) => (
           <li key={link.id}>
