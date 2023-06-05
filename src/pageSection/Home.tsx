@@ -1,7 +1,12 @@
 import heroImage from "./../assets/heroImage.jpg";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-scroll";
 
-const Home = (): JSX.Element => {
+type HomeProps = {
+  setTarget: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const Home = ({ setTarget }: HomeProps): JSX.Element => {
   return (
     <div
       id="home"
@@ -19,12 +24,19 @@ const Home = (): JSX.Element => {
           </p>
 
           <div>
-            <button className="group my-2 flex w-fit cursor-pointer items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3 text-white">
+            <Link
+              to="portfolio"
+              smooth
+              duration={400}
+              offset={-40}
+              className="group my-2 flex w-fit cursor-pointer items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3 text-white"
+              onClick={() => setTarget(3)}
+            >
               Portfolio{" "}
               <span className="transition-transform group-hover:rotate-90">
                 <MdOutlineKeyboardArrowRight size={24} className="ml-1" />
               </span>
-            </button>
+            </Link>
           </div>
         </div>
         <div>

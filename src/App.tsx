@@ -1,3 +1,4 @@
+import { useState } from "react";
 import NavBar from "./components/NavBar";
 import SocialLinks from "./components/SocialLinks";
 import About from "./pageSection/About";
@@ -7,11 +8,12 @@ import Home from "./pageSection/Home";
 import Portfolio from "./pageSection/Portfolio";
 
 function App(): JSX.Element {
+  const [target, setTarget] = useState<number>(1);
   return (
     <div className="flex flex-col">
-      <NavBar />
+      <NavBar target={target} />
       <SocialLinks />
-      <Home />
+      <Home setTarget={setTarget} />
       <About />
       <Portfolio />
       <Experience />

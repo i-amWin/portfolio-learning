@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-scroll";
@@ -7,9 +8,17 @@ type LinkType = {
   text: string;
 };
 
-const NavBar = (): JSX.Element => {
+type NavBarProps = {
+  target: number;
+};
+
+const NavBar = ({ target }: NavBarProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [active, setActive] = useState<number>(1);
+
+  useEffect(() => {
+    setActive(target);
+  }, [target]);
 
   const links: LinkType[] = [
     {
